@@ -1,7 +1,7 @@
 import { Chroma } from "@langchain/community/vectorstores/chroma";
 import { OpenAIEmbeddings } from "@langchain/openai";
 import { HuggingFaceTransformersEmbeddings } from "@langchain/community/embeddings/hf_transformers";
-import { ChatOpenAI } from "@langchain/openai";
+import {  ChatOllama } from "@langchain/ollama";
 
 
 export default async function handler(req, res) {
@@ -38,11 +38,16 @@ export default async function handler(req, res) {
             return res.status(404).json({ reply: "No relevant code found." });
         }
 
-        const llm = new ChatOpenAI({
-            modelName: "gpt-4o",
-            openAIApiKey: process.env.OPENAI_API_KEY,
-            temperature: 0,
-        });
+        // const llm = new ChatOpenAI({
+        //     modelName: "gpt-4o",
+        //     openAIApiKey: process.env.OPENAI_API_KEY,
+        //     temperature: 0,
+        // });
+        const llm = new ChatOllama(
+            {
+                model: "llama3.2",
+            }
+        )
         const prompt = `
 You are a code understanding assistant. Answer the user's question based on the following code snippet.
 

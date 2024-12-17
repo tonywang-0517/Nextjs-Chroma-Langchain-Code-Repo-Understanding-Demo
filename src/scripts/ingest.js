@@ -7,7 +7,8 @@ import cliProgress from "cli-progress";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { loadCodeFiles } from "../utils/codeLoader.js";
 
-const REPO_PATH = "/Users/t832993/workSpace/online-web-shop/src";
+// const REPO_PATH = "/Users/t832993/workSpace/online-web-shop/src";
+const REPO_PATH = "/Users/t828823/projects/online-web-shop/src";
 const CHROMA_URL = "http://localhost:8000";
 const COLLECTION_NAME = "online-web-shop";
 const BATCH_SIZE = 50;
