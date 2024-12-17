@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ac19136-a7ab-4600-9370-b2ce70d11e41" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Chatbot.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chatbot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/api/ingest.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/ingest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/api/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/query.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/codeLoader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/codeLoader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1732608147158</updated>
       <workItem from="1732608148218" duration="22604000" />
-      <workItem from="1734415814703" duration="17170000" />
+      <workItem from="1734415814703" duration="20611000" />
     </task>
     <servers />
   </component>

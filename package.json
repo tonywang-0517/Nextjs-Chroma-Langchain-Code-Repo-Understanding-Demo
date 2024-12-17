@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "ingest": "dotenv -e .env node src/scripts/ingest.js"
+    "ingest": "node src/scripts/ingest.js"
   },
   "dependencies": {
     "@langchain/community": "^0.3.19",
