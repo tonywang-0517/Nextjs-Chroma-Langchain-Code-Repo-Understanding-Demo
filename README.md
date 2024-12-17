@@ -2,7 +2,14 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+First, run the docker chroma db:
+docker pull chromadb/chroma
+docker run -p 8000:8000 chromadb/chroma
+
+Then, run the development
+yarn ingest
+yarn dev
+ask some question about the code logic under online-web-shop repository
 
 ```bash
 npm run dev
@@ -11,7 +18,7 @@ yarn dev
 # or
 pnpm dev
 # or
-bun dev
+yarn ingest
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

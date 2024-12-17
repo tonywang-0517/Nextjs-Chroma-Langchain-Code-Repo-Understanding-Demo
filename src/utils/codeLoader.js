@@ -1,12 +1,6 @@
 import { DirectoryLoader } from "langchain/document_loaders/fs/directory";
 import { TextLoader } from "langchain/document_loaders/fs/text";
 
-/**
- * 加载代码库文件，并返回 LangChain 文档对象
- * @param {string} repoPath - 代码仓库路径
- * @param {string[]} extensions - 支持的文件扩展名
- * @returns {Promise<Document[]>} 返回文档数组
- */
 export async function loadCodeFiles(repoPath, extensions = [".js", ".ts", ".tsx"]) {
     const loader = new DirectoryLoader(repoPath, {
         ...extensions.reduce((acc, ext) => {
@@ -14,5 +8,15 @@ export async function loadCodeFiles(repoPath, extensions = [".js", ".ts", ".tsx"
             return acc;
         }, {}),
     });
-    return await loader.load();
+
+    // 加载文件
+    const allFiles = await loader.load();
+
+    // 排除以 `.test.tsx` 和 `.graphql.ts` 结尾的文件
+
+    return allFiles.filter(
+        (file) =>
+            !file.metadata.source.endsWith(".test.tsx") &&
+            !file.metadata.source.endsWith(".graphql.ts") && !file.metadata.source.endsWith(".test.ts")
+    );
 }

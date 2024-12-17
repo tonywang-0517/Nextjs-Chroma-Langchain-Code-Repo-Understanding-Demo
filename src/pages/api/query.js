@@ -1,6 +1,7 @@
 import { Chroma } from "@langchain/community/vectorstores/chroma";
 import { OpenAIEmbeddings } from "@langchain/openai";
-import { OpenAI } from "@langchain/openai";
+import { HuggingFaceTransformersEmbeddings } from "@langchain/community/embeddings/hf_transformers";
+import { ChatOpenAI } from "@langchain/openai";
 
 
 export default async function handler(req, res) {
@@ -14,8 +15,11 @@ export default async function handler(req, res) {
             return res.status(400).json({ error: "Query is required" });
         }
 
-        const embeddings = new OpenAIEmbeddings({
-            openAIApiKey: process.env.OPENAI_API_KEY,
+        // const embeddings = new OpenAIEmbeddings({
+        //     openAIApiKey: process.env.OPENAI_API_KEY,
+        // });
+        const embeddings = new HuggingFaceTransformersEmbeddings({
+            model: "Xenova/all-MiniLM-L6-v2",
         });
 
         const vectorStore = await Chroma.fromExistingCollection(embeddings, {
@@ -31,10 +35,10 @@ export default async function handler(req, res) {
             .join("\n\n");
 
         if (!context) {
-            return res.status(404).json({ answer: "No relevant code found." });
+            return res.status(404).json({ reply: "No relevant code found." });
         }
 
-        const llm = new OpenAI({
+        const llm = new ChatOpenAI({
             modelName: "gpt-4o",
             openAIApiKey: process.env.OPENAI_API_KEY,
             temperature: 0,
@@ -52,7 +56,7 @@ Respond in clear and concise language, and briefly explain the code logic.
 
         const response = await llm.invoke(prompt);
 
-        res.status(200).json({ reply: response });
+        res.status(200).json({ reply: response.content });
     } catch (error) {
         console.error("Error in query API:", error);
         res.status(500).json({ error: "Failed to process query." });

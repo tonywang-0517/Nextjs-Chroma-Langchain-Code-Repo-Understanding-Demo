@@ -17,7 +17,7 @@ export default function Chatbot() {
             const response = await fetch('/api/query', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: [...messages, userMessage].map(({sender,text})=>`${sender}:${text}`).join(' ')}),
+                body: JSON.stringify({message:userMessage.text}),
             });
 
             const data = await response.json();
