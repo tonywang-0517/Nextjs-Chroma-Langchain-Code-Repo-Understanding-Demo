@@ -54,6 +54,7 @@ ${context}
 === Question ===
 ${message}
 Respond in clear and concise language, and briefly explain the code logic.
+Should include necessary code snippets and explanations and the location of the code in the repository.
 `;
 
     const response = await llm.invoke(prompt);
