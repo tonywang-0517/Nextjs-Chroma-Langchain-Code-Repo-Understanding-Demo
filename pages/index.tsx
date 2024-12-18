@@ -108,7 +108,7 @@ export default function Home() {
     setMessages([
       {
         sender: 'assistant',
-        text: `Hi! I am your assistant for the online-web-shop repository. Let me know how I can help you navigate or understand its code logic.`,
+        text: `Hi! I am your assistant for the Spark repositories. Let me know how I can help you navigate or understand its code logic.`,
       },
     ]);
   };
@@ -121,7 +121,7 @@ export default function Home() {
     setMessages([
       {
         sender: 'assistant',
-        text: `Hi! I am your assistant for the online-web-shop repository. Let me know how I can help you navigate or understand its code logic.`,
+        text: `Hi! I am your assistant for the Spark repository. Let me know how I can help you navigate or understand its code logic.`,
       },
     ]);
   }, []);
