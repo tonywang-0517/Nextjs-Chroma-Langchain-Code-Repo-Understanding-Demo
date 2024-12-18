@@ -1,6 +1,5 @@
 import { ChromaClient } from "chromadb";
 import { Chroma } from "@langchain/community/vectorstores/chroma";
-import { OpenAIEmbeddings } from "@langchain/openai";
 import { HuggingFaceTransformersEmbeddings } from "@langchain/community/embeddings/hf_transformers";
 import cliProgress from "cli-progress";
 
@@ -33,17 +32,10 @@ try {
     });
     const documents = await textSplitter.splitDocuments(rawDocs);
 
-    // const embeddings = new OpenAIEmbeddings({
-    //     openAIApiKey: process.env.OPENAI_API_KEY,
-    // });
     const embeddings = new HuggingFaceTransformersEmbeddings({
         model: "Xenova/all-MiniLM-L6-v2",
     });
-    console.log(`create collection "${COLLECTION_NAME}" and inserting doc embeddings...`);
-    // await Chroma.fromDocuments(documents, embeddings, {
-    //     collectionName: "online-web-shop",
-    //     url: "http://localhost:8000",
-    // });
+   
     await insertDocumentsWithProgress(documents, embeddings, COLLECTION_NAME, CHROMA_URL);
 
     console.log("Document ingestion completed.");

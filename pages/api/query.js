@@ -1,5 +1,4 @@
 import { Chroma } from '@langchain/community/vectorstores/chroma';
-import { OpenAIEmbeddings } from '@langchain/openai';
 import { HuggingFaceTransformersEmbeddings } from '@langchain/community/embeddings/hf_transformers';
 import { ChatOllama } from '@langchain/ollama';
 
@@ -14,9 +13,6 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Query is required' });
     }
 
-    // const embeddings = new OpenAIEmbeddings({
-    //     openAIApiKey: process.env.OPENAI_API_KEY,
-    // });
     const embeddings = new HuggingFaceTransformersEmbeddings({
       model: 'Xenova/all-MiniLM-L6-v2',
     });
@@ -37,11 +33,6 @@ export default async function handler(req, res) {
       return res.status(404).json({ reply: 'No relevant code found.' });
     }
 
-    // const llm = new ChatOpenAI({
-    //     modelName: "gpt-4o",
-    //     openAIApiKey: process.env.OPENAI_API_KEY,
-    //     temperature: 0,
-    // });
     const llm = new ChatOllama({
       model: 'llama3.2',
     });
