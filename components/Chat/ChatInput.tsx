@@ -26,7 +26,7 @@ export const ChatInput: FC<Props> = ({ onSend }) => {
       alert("Please enter a message");
       return;
     }
-    onSend({ role: "user", content });
+    onSend({ sender: "user",  text: content });
     setContent("");
   };
 
@@ -58,7 +58,7 @@ export const ChatInput: FC<Props> = ({ onSend }) => {
       />
 
       <button onClick={() => handleSend()}>
-        <IconArrowUp className="absolute right-2 bottom-3 h-8 w-8 hover:cursor-pointer rounded-full p-1 bg-blue-500 text-white hover:opacity-80" />
+        <IconArrowUp className="absolute w-8 h-8 p-1 text-white bg-blue-500 rounded-full right-2 bottom-3 hover:cursor-pointer hover:opacity-80" />
       </button>
     </div>
   );

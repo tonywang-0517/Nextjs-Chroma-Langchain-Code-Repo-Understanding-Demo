@@ -3,8 +3,8 @@ export enum OpenAIModel {
 }
 
 export interface Message {
-  role: Role;
-  content: string;
+  sender: Role;
+  text: string;
 }
 
 export type Role = "assistant" | "user";
